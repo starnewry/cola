@@ -2,115 +2,113 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>크레이프 약도</title>
+  <title>크레이프 안내</title>
 
   <!-- Pretendard 폰트 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
 
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Pretendard', sans-serif;
-
-      /* 🔥 홈페이지 기본 배경을 어두운 빨강색으로 변경 */
-      background: #5a0f0f;
-      background-size: cover;
-      background-attachment: fixed;
-    }
-
-    .container {
-      max-width: 480px;
-      margin: 20px auto;
-      padding: 16px;
+      background: #5b0000; /* 어두운 빨강 배경 */
+      font-family: "Pretendard", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 10px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.88);
-      padding: 22px;
+      background: white;
+      max-width: 550px;
+      padding: 25px 30px;
       border-radius: 18px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      margin-bottom: 22px;
       text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      margin-bottom: 25px;
     }
 
     .title {
       font-size: 28px;
       font-weight: 700;
-      margin-bottom: 8px;
-      color: #222;
+      margin-bottom: 15px;
     }
 
-    .map-img {
-      width: 100%;
-      border-radius: 14px;
-      margin-top: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    .info {
+      font-size: 16px;
+      line-height: 26px;
+      color: #333;
     }
 
-    /* 🎄 이벤트 박스 - 어두운 초록색 */
+    .info b {
+      color: #d10000;
+    }
+
+    /* 이벤트 박스 */
     .event-box {
-      margin-top: 20px;
-      padding: 22px;
-      background: #0f3d1e; /* 어두운 딥그린 */
-      border-radius: 14px;
+      background: #0f3b2e; /* 어두운 초록 */
+      color: white;
+      max-width: 550px;
+      padding: 25px;
+      border-radius: 18px;
       text-align: center;
-      font-size: 15px;
-      color: #ffffff;
-      font-weight: 600;
-
-      border: 2px solid #1c5a30;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      font-size: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
-    a {
-      color: #1a73e8;
-      text-decoration: none;
-      font-weight: 600;
+    .event-box .snow {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    /* 지도 이미지 */
+    .map-box img {
+      width: 100%;
+      max-width: 550px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
     }
 
     @media (max-width: 480px) {
       .title { font-size: 24px; }
+      .event-box { font-size: 16px; }
+      .info { font-size: 14px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- 매장 정보 카드 -->
-    <div class="card">
-      <div class="title">크레이프 🍰</div>
+  <!-- 상단 매장 정보 카드 -->
+  <div class="card">
+    <div class="title">크레이프 🍰</div>
 
-      <div style="font-size:15px; margin-bottom:3px;">
-        📍 서울 서대문구 명지대3길 26 1층
-      </div>
-
-      <div style="font-size:15px; margin-bottom:6px; color:#d62828;">
-        ☎ <a href="tel:050713524351" style="color:#d62828;">0507-1352-4351</a>
-      </div>
-
-      <div style="font-size:15px;">
-        📷 인스타그램 :
-        <a href="https://www.instagram.com/cafe_creif" target="_blank">@cafe_creif</a>
-      </div>
+    <div class="info">
+      📍 서울 서대문구 명지대3길 26 1층<br><br>
+      📞 <b><a href="tel:050713524351">0507-1352-4351</a></b><br><br>
+      📷 인스타그램 : <a href="https://www.instagram.com/cafe_creif" target="_blank">@cafe_creif</a>
     </div>
-
-    <!-- 약도 이미지 -->
-    <img
-      class="map-img"
-      src="./스크린샷 2025-11-20 220354.png"
-      alt="약도 이미지"
-    />
-
-    <!-- 겨울 이벤트 박스 (초록색) -->
-    <div class="event-box">
-      ❄️ 겨울 이벤트 진행 중 ❄️<br><br>
-      포스터에 붙어 있는 <b>쿠폰을 가져오면</b><br>
-      특별한 혜택이 제공됩니다!
-    </div>
-
   </div>
-</body>
 
+  <!-- 겨울 이벤트 박스 -->
+  <div class="event-box">
+    <div class="snow">❄ 겨울 이벤트 진행중 ❄</div>
+
+    <!-- 🔥 요청한 문구만 남김 -->
+    <div style="font-size:15px; margin-top:10px; line-height:22px;">
+      ✂ <b>생크림 부분을 뜯어서 방문하세요!<br>
+      토핑에 따라 다른 상품이 지급됩니다!</b><br><br>
+
+      📅 이벤트 기간 : <b>11월 24일 ~ 11월 28일</b>
+    </div>
+  </div>
+
+  <!-- 지도 이미지 -->
+  <div class="map-box">
+    <img src="스크린샷 2025-11-20 220354.png" alt="약도 이미지">
+  </div>
+
+</body>
 </html>
