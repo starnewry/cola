@@ -15,7 +15,6 @@
       margin: 0;
       padding: 0;
       font-family: "Pretendard", sans-serif;
-
       background: linear-gradient(180deg, #3d0000, #600000, #4b0000);
       animation: fadeIn 1.2s ease-out;
       overflow-x: hidden;
@@ -41,7 +40,7 @@
       padding: 28px 22px;
       border-radius: 18px;
       box-shadow: 0 6px 22px rgba(0,0,0,0.35);
-      text-align: center; 
+      text-align: center;
       margin-bottom: 22px;
       position: relative;
       border: 3px solid #c30000;
@@ -65,23 +64,29 @@
       text-align: center;
     }
 
+    /* 주소/전화번호 라인 완전 정중앙 */
     .info-line {
       margin: 4px 0;
       color: #222;
       font-size: 15px;
       text-align: center;
+      display: block;
     }
 
+    /* 전화번호 링크 */
     .info-line a {
       color: #b90000;
       font-weight: 700;
       text-decoration: none;
       text-align: center;
+      display: inline-block;
     }
 
+    /* 인스타그램 라인 완전 중심 */
     .instagram {
+      width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: center; /* ★ 완전 중앙 */
       align-items: center;
       gap: 6px;
       margin-top: 6px;
@@ -94,6 +99,13 @@
     .instagram svg {
       width: 16px;
       height: 16px;
+      display: block;  /* ★ inline 영향 제거 */
+      margin: 0;
+    }
+
+    .instagram a {
+      text-align: center;
+      display: block;
     }
 
     /* ===========================
@@ -150,7 +162,7 @@
     }
 
     /* ===========================
-       ✨ 반짝이는 조명 효과
+       ✨ 반짝이 효과
     ============================ */
     @keyframes sparkle {
       0% { opacity: 0.2; }
@@ -169,14 +181,15 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- ❄ 눈송이 + ✨ 반짝이 생성 -->
+  <!-- ❄ 눈 + ✨ 반짝이 생성 -->
   <script>
     for (let i = 0; i < 22; i++) {
       let s = document.createElement("div");
       s.className = "snowflake";
-      s.innerinnerText = "❄";
+      s.textContent = "❄";          /* ← 오타 수정됨 */
       s.style.left = Math.random() * 100 + "vw";
       s.style.animationDuration = (3 + Math.random() * 5) + "s";
       s.style.opacity = Math.random();
