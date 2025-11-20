@@ -11,12 +11,53 @@
     body {
       margin: 0;
       padding: 0;
-      background: #4a0000; /* 어두운 빨강 */
+      background: #4a0000;
       font-family: 'Pretendard', sans-serif;
       overflow-x: hidden;
+      opacity: 0;
+      animation: fadein 1.5s ease forwards;
     }
 
-    /* 눈송이 공통 스타일 */
+    /* 페이지 전체 페이드인 */
+    @keyframes fadein {
+      to { opacity: 1; }
+    }
+
+    /* ------------------------------- */
+    /*          로딩 애니메이션        */
+    /* ------------------------------- */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #4a0000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      animation: fadeout 1s ease 2.3s forwards;
+    }
+
+    @keyframes fadeout {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    .loader-snow {
+      font-size: 48px;
+      color: white;
+      animation: rotate 2s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* ------------------------------- */
+    /*           눈송이 효과           */
+    /* ------------------------------- */
     .snowflake {
       position: fixed;
       top: -10px;
@@ -33,16 +74,18 @@
       100% { transform: translateY(110vh) rotate(360deg); }
     }
 
-    /* 상단 매장 정보 카드 (축소 버전) */
+    /* ------------------------------- */
+    /*        상단 매장 정보 카드      */
+    /* ------------------------------- */
     .info-card {
-      max-width: 750px;      /* 크기 ↓ */
+      max-width: 620px;
       margin: 20px auto 0;
       background: white;
-      border-radius: 16px;   /* 둥글기 ↓ */
-      padding: 18px 20px;    /* 패딩 ↓ */
+      border-radius: 16px;
+      padding: 18px 20px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.15);
       text-align: center;
-      line-height: 1.35;     /* 줄 간격 ↓ */
+      line-height: 1.35;
     }
 
     .info-card h1 {
@@ -53,24 +96,58 @@
     .info-row {
       margin: 2px 0;
       font-size: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 전화번호 버튼 */
+    .call-btn {
+      background: #b30000;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      transition: 0.2s;
+    }
+    .call-btn:hover {
+      background: #d00000;
+      transform: translateY(-2px);
+    }
+
+    /* 인스타그램 아이콘 */
+    .instagram-icon {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      fill: #e1306c;
     }
 
     /* 약도 이미지 */
     .map-image {
-      max-width: 750px;
+      max-width: 620px;
       margin: 18px auto 6px;
       border-radius: 15px;
       display: block;
       width: 100%;
+      height: auto;
+      object-fit: contain;
+      padding: 6px;
+      background: white;
     }
 
-    /* 이벤트 박스 */
+    /* ------------------------------- */
+    /*        이벤트 박스 + 리본       */
+    /* ------------------------------- */
     .event-box {
-      max-width: 750px;
-      margin: 6px auto 30px;
-      background: #0c3924; /* 어두운 초록 */
+      max-width: 620px;
+      margin: 6px auto 40px;
+      background: #0c3924;
       color: white;
-      padding: 18px;
+      padding: 22px;
       border-radius: 15px;
       text-align: center;
       font-size: 15px;
@@ -79,16 +156,19 @@
       position: relative;
     }
 
+    /* 리본 */
     .event-box::before {
-      content: "❄ ❄ ❄";
+      content: "";
       position: absolute;
-      top: -15px;
+      top: -12px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 18px;
-      opacity: 0.8;
+      width: 70px;
+      height: 40px;
+      background: url('https://i.imgur.com/Cj3BUnN.png') no-repeat center/cover;
     }
 
+    /* 눈송이 장식 */
     .event-box::after {
       content: "❄ ❄ ❄";
       position: absolute;
@@ -103,31 +183,41 @@
 
 <body>
 
-  <!-- 상단 매장 정보 카드 -->
+  <!-- 로딩 애니메이션 -->
+  <div id="loader">
+    <div class="loader-snow">❄</div>
+  </div>
+
+  <!-- 매장 정보 카드 -->
   <div class="info-card">
     <h1>크레이프 🍰</h1>
 
-    <div class="info-row">📍 서울 서대문구 명지대3길 26 1층</div>
-    <div class="info-row">☎️ 
-      <a href="tel:050713524351" style="color:#b30000; font-weight:700;">
-        0507-1352-4351
-      </a>
+    <div class="info-row">
+      📍 서울 서대문구 명지대3길 26 1층
     </div>
-    <div class="info-row">📷 인스타그램 : 
-      <a href="https://www.instagram.com/cafe_creif" target="_blank" style="color:#4ea3ff">
+
+    <div class="info-row">
+      ☎️ <a href="tel:050713524351" class="call-btn">전화하기</a>
+    </div>
+
+    <div class="info-row">
+      <svg class="instagram-icon" viewBox="0 0 24 24">
+        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10a5 5 0 0 1 0-10zm0 1.5A3.5 3.5 0 1 0 12 15a3.5 3.5 0 0 0 0-7z"/>
+      </svg>
+      <a href="https://www.instagram.com/cafe_creif" target="_blank" style="color:#e1306c; font-weight:600;">
         @cafe_creif
       </a>
     </div>
   </div>
 
-  <!-- 약도 이미지 -->
+  <!-- 약도 -->
   <img src="약도.png" class="map-image" alt="크레이프 약도">
 
-  <!-- 겨울 이벤트 박스 -->
+  <!-- 이벤트 박스 -->
   <div class="event-box">
     ❄ 겨울 이벤트 진행 중 ❄  
     <br>
-    생크림 부분을 뜯어서 방문하세요!  
+    생크림 부분을 뜯어서 방문하세요!
     <br>
     토핑에 따라 다른 상품이 지급됩니다 🎁  
     <br><br>
@@ -141,27 +231,15 @@
       snowflake.classList.add("snowflake");
       snowflake.textContent = "❄";
 
-      // X 위치 랜덤
       snowflake.style.left = Math.random() * window.innerWidth + "px";
-
-      // 크기 랜덤
-      const size = Math.random() * 18 + 8;
-      snowflake.style.fontSize = size + "px";
-
-      // 속도 랜덤
+      snowflake.style.fontSize = (Math.random() * 18 + 8) + "px";
       snowflake.style.animationDuration = (Math.random() * 7 + 5) + "s";
-
-      // 투명도 랜덤
       snowflake.style.opacity = Math.random() * 0.8 + 0.2;
 
       document.body.appendChild(snowflake);
-
-      setTimeout(() => {
-        snowflake.remove();
-      }, 13000);
+      setTimeout(() => snowflake.remove(), 13000);
     }
 
-    // 눈 생성 간격
     setInterval(createSnowflake, 150);
   </script>
 
