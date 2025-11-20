@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>크레이프 | 광고기획 콜라조 🎄</title>
+  <title>크레이프 | 크리스마스 이벤트 🎄</title>
 
   <!-- Pretendard Font -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css" />
@@ -19,10 +19,7 @@
       animation: fadeIn 1.2s ease-out;
       overflow-x: hidden;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     .container {
       max-width: 420px;
@@ -88,19 +85,10 @@
       font-size: 14px;
       color: #0070f3;
       font-weight: 600;
-      text-align: center;
     }
 
-    .instagram svg {
-      width: 16px;
-      height: 16px;
-      display: block;
-    }
-
-    .instagram a {
-      text-align: center;
-      display: block;
-    }
+    .instagram svg { width: 16px; height: 16px; display: block; }
+    .instagram a { display: block; }
 
     /* ===========================
        🗺 약도 이미지
@@ -111,7 +99,6 @@
       margin-top: 6px;
       box-shadow: 0 4px 14px rgba(0,0,0,0.4);
       object-fit: contain;
-      image-rendering: high-quality;
     }
 
     /* ===========================
@@ -120,7 +107,7 @@
     .event-box {
       margin-top: 20px;
       background: #0b2f17;
-      padding: 20px 16px;
+      padding: 26px 16px 22px;
       border-radius: 16px;
       color: white;
       text-align: center;
@@ -130,13 +117,51 @@
       position: relative;
     }
 
+    /* 리본 */
     .event-box::before {
       content: "🎀";
       position: absolute;
-      top: -12px;
+      top: -14px;
       left: 50%;
       transform: translateX(-50%);
       font-size: 24px;
+    }
+
+    /* 스티커 */
+    .event-box::after {
+      content: "🎁";
+      position: absolute;
+      top: -12px;
+      left: -10px;
+      font-size: 26px;
+      transform: rotate(-10deg);
+    }
+
+    .sticker-bottom {
+      content: "🧦";
+      position: absolute;
+      bottom: -12px;
+      right: -8px;
+      font-size: 26px;
+      transform: rotate(12deg);
+    }
+
+    .sticker-left {
+      content: "🎄";
+      position: absolute;
+      bottom: -12px;
+      left: -8px;
+      font-size: 26px;
+      transform: rotate(-8deg);
+    }
+
+    .sticker-top {
+      content: "❄️";
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 22px;
+      transform: rotate(6deg);
     }
 
     /* ===========================
@@ -147,7 +172,6 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      padding: 0;
     }
 
     .reward-item {
@@ -170,7 +194,7 @@
     }
 
     /* ===========================
-       ❄ 눈송이 효과
+       ❄ 눈송이 + ✨ 반짝이
     ============================ */
     .snowflake {
       position: fixed;
@@ -182,14 +206,7 @@
     }
     @keyframes fall {
       from { transform: translateY(0); opacity: 1; }
-      to { transform: translateY(100vh); opacity: 0; }
-    }
-
-    /* ✨ 반짝이 효과 */
-    @keyframes sparkle {
-      0% { opacity: 0.2; }
-      50% { opacity: 1; }
-      100% { opacity: 0.2; }
+      to   { transform: translateY(100vh); opacity: 0; }
     }
 
     .sparkle {
@@ -201,12 +218,17 @@
       animation: sparkle 1.4s infinite ease-in-out;
       pointer-events: none;
     }
+    @keyframes sparkle {
+      0% { opacity: 0.2; }
+      50% { opacity: 1; }
+      100% { opacity: 0.2; }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- ❄ 눈 + ✨ 반짝이 생성 -->
+  <!-- ❄ 눈 + ✨ 반짝이 효과 생성 -->
   <script>
     for (let i = 0; i < 22; i++) {
       let s = document.createElement("div");
@@ -250,11 +272,7 @@
     </div>
 
     <!-- 🗺 약도 이미지 -->
-    <img
-      src="스크린샷 2025-11-20 220354.png"
-      alt="크레이프 약도"
-      class="map-image"
-    />
+    <img src="스크린샷 2025-11-20 220354.png" alt="크레이프 약도" class="map-image" />
 
     <!-- 🎄 이벤트 박스 -->
     <div class="event-box">
@@ -268,7 +286,7 @@
         📅 이벤트 기간: <b>11월 25일 ~ 11월 28일</b>
       </div>
 
-      <!-- 📦 리워드 카드 리스트 -->
+      <!-- 📦 리워드 카드 리스트 (괄호 제거 버전) -->
       <div class="reward-list">
         <div class="reward-item">
           <span class="icon">🧀</span>
@@ -294,10 +312,10 @@
           <span class="icon">🍓</span>
           과일 크레페 1개
         </div>
+
       </div>
-
     </div>
-
+    
   </div>
 </body>
 </html>
