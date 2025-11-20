@@ -33,7 +33,7 @@
     }
 
     /* ===========================
-       🎁 상단 매장 정보 카드 (전체 중앙정렬)
+       🎁 상단 매장 정보 카드
     ============================ */
     .card {
       background: #fff;
@@ -75,7 +75,6 @@
       color: #b90000;
       font-weight: 700;
       text-decoration: none;
-      text-align: center;
       display: inline-block;
     }
 
@@ -96,7 +95,6 @@
       width: 16px;
       height: 16px;
       display: block;
-      margin: 0;
     }
 
     .instagram a {
@@ -141,16 +139,34 @@
       font-size: 24px;
     }
 
-    /* 리워드 목록 스타일 */
+    /* ===========================
+       📦 리워드 카드 스타일
+    ============================ */
     .reward-list {
-      margin-top: 14px;
-      padding: 10px 12px;
-      background: rgba(255,255,255,0.08);
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 0;
+    }
+
+    .reward-item {
+      background: #143020;
+      border: 2px solid #2a5c35;
       border-radius: 12px;
-      text-align: left;
+      padding: 12px 14px;
+      color: #ffffff;
       font-size: 14px;
-      line-height: 1.55;
-      display: inline-block;
+      line-height: 1.45;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    }
+
+    .reward-item .icon {
+      font-size: 20px;
+      flex-shrink: 0;
     }
 
     /* ===========================
@@ -169,9 +185,7 @@
       to { transform: translateY(100vh); opacity: 0; }
     }
 
-    /* ===========================
-       ✨ 반짝이 효과
-    ============================ */
+    /* ✨ 반짝이 효과 */
     @keyframes sparkle {
       0% { opacity: 0.2; }
       50% { opacity: 1; }
@@ -254,13 +268,32 @@
         📅 이벤트 기간: <b>11월 25일 ~ 11월 28일</b>
       </div>
 
-      <!-- 🎁 리워드 목록 -->
+      <!-- 📦 리워드 카드 리스트 -->
       <div class="reward-list">
-        🧀 치즈큐브 추가 12개 (귤 쿠폰 × 12)<br>
-        🍫 몰티저스 추가 12개 (청포도 쿠폰 × 12)<br>
-        ☕ 아메리카노 3개 (앙버터 쿠폰 × 3)<br>
-        🥞 베이직 크레페 2개 (바나나 쿠폰 × 2)<br>
-        🍓 과일 크레페 1개 (딸기 쿠폰 × 1)
+        <div class="reward-item">
+          <span class="icon">🧀</span>
+          치즈큐브 추가 12개 (귤 쿠폰 × 12)
+        </div>
+
+        <div class="reward-item">
+          <span class="icon">🍫</span>
+          몰티저스 추가 12개 (청포도 쿠폰 × 12)
+        </div>
+
+        <div class="reward-item">
+          <span class="icon">☕</span>
+          아메리카노 3개 (앙버터 쿠폰 × 3)
+        </div>
+
+        <div class="reward-item">
+          <span class="icon">🥞</span>
+          베이직 크레페 2개 (바나나 쿠폰 × 2)
+        </div>
+
+        <div class="reward-item">
+          <span class="icon">🍓</span>
+          과일 크레페 1개 (딸기 쿠폰 × 1)
+        </div>
       </div>
 
     </div>
