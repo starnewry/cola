@@ -46,7 +46,6 @@
       border: 3px solid #c30000;
     }
 
-    /* 산타 모자 중앙 */
     .card::before {
       content: "🎅";
       font-size: 34px;
@@ -64,7 +63,6 @@
       text-align: center;
     }
 
-    /* 주소/전화번호 라인 완전 정중앙 */
     .info-line {
       margin: 4px 0;
       color: #222;
@@ -73,7 +71,6 @@
       display: block;
     }
 
-    /* 전화번호 링크 */
     .info-line a {
       color: #b90000;
       font-weight: 700;
@@ -82,11 +79,10 @@
       display: inline-block;
     }
 
-    /* 인스타그램 라인 완전 중심 */
     .instagram {
       width: 100%;
       display: flex;
-      justify-content: center; /* ★ 완전 중앙 */
+      justify-content: center;
       align-items: center;
       gap: 6px;
       margin-top: 6px;
@@ -99,7 +95,7 @@
     .instagram svg {
       width: 16px;
       height: 16px;
-      display: block;  /* ★ inline 영향 제거 */
+      display: block;
       margin: 0;
     }
 
@@ -143,6 +139,18 @@
       left: 50%;
       transform: translateX(-50%);
       font-size: 24px;
+    }
+
+    /* 리워드 목록 스타일 */
+    .reward-list {
+      margin-top: 14px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.55;
+      display: inline-block;
     }
 
     /* ===========================
@@ -189,7 +197,7 @@
     for (let i = 0; i < 22; i++) {
       let s = document.createElement("div");
       s.className = "snowflake";
-      s.textContent = "❄";          /* ← 오타 수정됨 */
+      s.textContent = "❄";
       s.style.left = Math.random() * 100 + "vw";
       s.style.animationDuration = (3 + Math.random() * 5) + "s";
       s.style.opacity = Math.random();
@@ -240,11 +248,21 @@
         🎄 크리스마스 겨울 이벤트 진행 중 🎄
       </div>
 
-      <div style="font-size: 14px; line-height: 1.4;">
+      <div style="font-size: 14px; line-height: 1.5;">
         생크림 위 쿠폰을 뜯어서 가게에 방문하세요!<br>
         토핑에 따라 다른 상품이 지급됩니다 🎁<br><br>
         📅 이벤트 기간: <b>11월 25일 ~ 11월 28일</b>
       </div>
+
+      <!-- 🎁 리워드 목록 -->
+      <div class="reward-list">
+        🧀 치즈큐브 추가 12개 (귤 쿠폰 × 12)<br>
+        🍫 몰티저스 추가 12개 (청포도 쿠폰 × 12)<br>
+        ☕ 아메리카노 3개 (앙버터 쿠폰 × 3)<br>
+        🥞 베이직 크레페 2개 (바나나 쿠폰 × 2)<br>
+        🍓 과일 크레페 1개 (딸기 쿠폰 × 1)
+      </div>
+
     </div>
 
   </div>
